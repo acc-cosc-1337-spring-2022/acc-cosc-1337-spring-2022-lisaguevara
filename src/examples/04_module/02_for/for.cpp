@@ -1,5 +1,5 @@
 #include "for.h"
-#include<iostream>
+
 
 //Write code for function display_numbers that accepts a number and 
 //displays every number that precedes(starting from 1) it in a line
@@ -14,4 +14,8 @@ RESULT:
 5
 
 */
-
+void display_numbers(int num) {
+    for(int cnt = 0; cnt < num; cnt++) {
+        std::cout << cnt + 1 << "\n";
+    }
+}
