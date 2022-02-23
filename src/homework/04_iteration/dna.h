@@ -1,19 +1,10 @@
-#include<string>
 
-/*
-Write prototype for function get_gc_content that accepts
-a const reference string parameter and returns a double
+/* Fucntion prototype for int value-return function naamed factorial
+that accepts int parameter num
 */
+int factorial(int num);
 
-
-/*
-Write prototype for function get_reverse_string that 
-accepts a string parameter and returns a string
+/* Fucntion prototype for int value-return function naamed gcd
+that accepts int parameter num1 and int num2
 */
-
-
-/*
-Write prototype for function get_dna_complement that
-accepts a string and returns a string
-*/
-
+int gcd(int num1, int num2);
