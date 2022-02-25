@@ -5,7 +5,7 @@ using std::cout;
 int main() 
 {
 	auto num = 5; // int variable
-	int &num_ref = num; // int reference variable like a clone
+	int &num_ref = num; // int reference variable is like a clone
 
 	cout << num << "\n";
 	cout << num_ref<<"\n";
