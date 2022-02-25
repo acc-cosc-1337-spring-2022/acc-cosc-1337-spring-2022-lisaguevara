@@ -17,3 +17,27 @@ TEST_CASE("Test gcd function") {
 	REQUIRE(gcd(21, 28) == 7);
 	REQUIRE(gcd(25, 100) == 25);
 }
+
+TEST_CASE("Test the validation process of confirm_choice function") {
+	/* When prompted, user must enter "n" first, then "y" 
+	 * for the entire test case to be considered passing.
+	 * However, this test is meant to confirm that the function
+	 * will output "invalid entry" if "n" or "y" aren't entered.
+	 */
+	REQUIRE(confirm_choice() == "n");
+	REQUIRE(confirm_choice() == "y");
+}
+
+TEST_CASE("Tests the handle_menu_choice function returns 0"){
+	/* Returns 0 if choice is 3 and user confirms they do NOT
+	* want to exit
+	*/
+	REQUIRE(handle_menu_choice(3) == 0);
+}
+
+TEST_CASE("Tests the handle_menu_choice function returns 3"){
+	/* Returns 3 if choice is 3 and user confirms they DO
+	* want to exit
+	*/
+	REQUIRE(handle_menu_choice(3) == 3);
+}
