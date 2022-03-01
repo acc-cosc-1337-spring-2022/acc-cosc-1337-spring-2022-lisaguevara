@@ -1,19 +1,35 @@
-#include<string>
+#include <iostream>
+#include <string>
 
-/*
-Write prototype for function get_gc_content that accepts
-a const reference string parameter and returns a double
+using std::cout, std::cin, std::string;
+/* Fucntion prototype for int value-return function naamed factorial
+that accepts int parameter num
 */
+int factorial(int num);
 
-
-/*
-Write prototype for function get_reverse_string that 
-accepts a string parameter and returns a string
+/* Fucntion prototype for int value-return function naamed gcd
+that accepts int parameter num1 and int num2
 */
+int gcd(int num1, int num2);
 
+// Function signature void function named run_menu
+void run_menu();
 
-/*
-Write prototype for function get_dna_complement that
-accepts a string and returns a string
+// Function signature void function named display_menu
+void display_menu();
+
+/* Function signature for int value-return function named
+* handle_menu_choice that accepts int parameter choice
+*/ 
+int handle_menu_choice(int choice);
+
+/* Function signature for string value-return function 
+* named confirm_choice 
 */
+string confirm_choice();
 
+// Function signature void function named process_factorial
+void process_factorial();
+
+// Function signature void function named process_gcd
+void process_gcd();
