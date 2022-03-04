@@ -1,5 +1,6 @@
 #include "sequence.h"
 #include <iostream>
+#include <iomanip>
 
 // Function block for get_gc_content
 double get_gc_content(const std::string dna) {
@@ -125,7 +126,7 @@ bool validate_dna_string(std::string dna) {
  * a double and string argument
  */
 void display_contents(double contents, std::string dna){
-    std::cout << "The GC Content of " << dna << " is: " << contents << "%" << "\n";
+    std::cout << "The GC Content of " << dna << " is: " << std::setprecision(3) << contents << "%" << "\n";
 }
 
 /* Overloaded function block for display_contents which takes
