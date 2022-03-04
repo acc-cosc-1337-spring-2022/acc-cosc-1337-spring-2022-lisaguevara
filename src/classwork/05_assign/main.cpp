@@ -17,6 +17,7 @@ give you a valid name.
 
 int main()
 {
+	run_dna_menu();
 	return 0;
 }
 
