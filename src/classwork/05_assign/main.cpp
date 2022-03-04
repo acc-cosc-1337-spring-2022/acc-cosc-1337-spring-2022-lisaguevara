@@ -1,5 +1,4 @@
 //write include statements
-#include<string>
 #include<iostream>
 #include "sequence.h"
 
@@ -18,7 +17,6 @@ give you a valid name.
 
 int main()
 {
-
 	return 0;
 }
 

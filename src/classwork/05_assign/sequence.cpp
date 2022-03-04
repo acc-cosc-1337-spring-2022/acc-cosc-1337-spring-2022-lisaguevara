@@ -1,15 +1,46 @@
-//write include statements 
+#include "sequence.h"
+#include <iostream>
 
+// Function block for get_gc_content
+double get_gc_content(const std::string dna) {
+    double sum = 0;
+    double gc_sum = 0;
+    for (char ch:dna){
+        sum++;
+        if (ch == 'G' || ch == 'C'){
+            gc_sum++;
+        }
+    }
+    return gc_sum / sum;
+}
 
-/*
-Write code for void function display_vector that accepts parameter const reference vector of strings.
-The function will iterate through the vector and display a string per line.
-*/
+// Function block for reverse_string
+std::string reverse_string(std::string dna) {
+    std::string temp_st;
+    for (int i = dna.length(); i >= 0; i--) {
+        temp_st += dna[i];
+    }
+    return temp_st;
+}
 
-
-/*
-Write code for void function update_vector_element that accepts parameter reference vector of strings,
-a string vector search_value, and a string replace_value.
-The function will iterate through the vector and search for the search_value and if found will
-replace the vector element with the replace_value.
-*/
+// Function block for get_dna_complement
+std::string get_dna_complement(std::string dna) {
+    dna = reverse_string(dna);
+    for (int i = dna.length(); i >= 0; i--) {
+        switch (dna[i]) {
+            case 'A':
+                dna[i] = 'T';
+                break;
+            case 'T':
+                dna[i] = 'A';
+                break;
+            case 'C':
+                dna[i] = 'G';
+                break;
+            case 'G':
+                dna[i] = 'C';
+                break;
+        }
+    }
+    return dna;
+}
