@@ -12,7 +12,7 @@ double get_gc_content(const std::string dna) {
             gc_sum++;
         }
     }
-    return gc_sum / sum *100;
+    return gc_sum / sum;
 }
 
 // Function block for reverse_string
@@ -126,7 +126,7 @@ bool validate_dna_string(std::string dna) {
  * a double and string argument
  */
 void display_contents(double contents, std::string dna){
-    std::cout << "The GC Content of " << dna << " is: " << std::setprecision(3) << contents << "%" << "\n";
+    std::cout << "The GC Content of " << dna << " is: " << std::setprecision(3) << (contents *100) << "%" << "\n";
 }
 
 /* Overloaded function block for display_contents which takes
