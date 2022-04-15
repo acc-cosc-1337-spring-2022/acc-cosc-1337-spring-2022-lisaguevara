@@ -6,16 +6,27 @@ using std::string, std::cout;
 
 // Friend methods
 std::ostream& operator<<(std::ostream& out, const TicTacToe& game){
-    for(int i = 0; i < 9; i+=3) {
-        out << game.pegs[i] << "|" << game.pegs[i +1] << "|" << game.pegs[i+2] << "\n";
+    if (game.pegs.size() == 9) {
+        for(int i = 0; i < 9; i+=3) {
+            out << game.pegs[i] << "|" << game.pegs[i +1] << "|" << game.pegs[i+2] << "\n";
+        }
+    } else {
+        for(int i = 0; i < 16; i+=4) {
+            out << game.pegs[i] << "|" << game.pegs[i +1] << "|" << game.pegs[i+2] << "|" << game.pegs[i+3] << "\n";
+        }
     }
     return out;
 }
 
 std::istream& operator>>(std::istream& in, TicTacToe& game) {
     int position;
-    cout << "Enter position [1-9]: ";
-	in >> position;
+    if (game.pegs.size() == 9) {
+        cout << "Enter position [1-9]: ";
+	    in >> position;
+    } else {
+        cout << "Enter position [1-16]: ";
+	    in >> position;
+    }
     game.mark_board(position);
     return in;
 }
@@ -72,71 +83,26 @@ bool TicTacToe::check_board_full() {
     return true;
 }
 void TicTacToe::clear_board() {
-    for (int i = 0; i < 9; i++) {
+    if (pegs.size() == 9) {
+        for (int i = 0; i < 9; i++) {
         pegs[i] = " ";
+        }
+    } else {
+        for (int i = 0; i < 16; i++) {
+        pegs[i] = " ";
+        }
     }
 }
 
 bool TicTacToe::check_column_win() {
-    /* A column wins with marked values 1,4,7 or 2,5,8, or 3,6,9 with all Os or Xs  
-    (Remember a vector index starts at 0) 
-    */
-    bool win;
-    if (pegs[0] == "X" && pegs[3] == "X" && pegs[6] == "X") {
-        win = true;
-    } else if (pegs[1] == "X" && pegs[4] == "X" && pegs[7] == "X") {
-        win = true;
-    } else if (pegs[2] == "X" && pegs[5] == "X" && pegs[8] == "X") {
-        win = true;
-    } else if (pegs[0] == "O" && pegs[3] == "O" && pegs[6] == "O") {
-        win = true;
-    } else if (pegs[1] == "O" && pegs[4] == "O" && pegs[7] == "O") {
-        win = true;
-    } else if (pegs[2] == "O" && pegs[5] == "O" && pegs[8] == "O") {
-        win = true;
-    } else {
-        win = false;
-    }
-    return win;
+    return false;
 }
 
 bool TicTacToe::check_row_win() {
-    /* A row wins with marked values 1,2,3 or 4,5,6 or 7,8,9 with all Os or Xs
-    */
-    bool win;
-    if (pegs[0] == "X" && pegs[1] == "X" && pegs[2] == "X") {
-        win = true;
-    } else if (pegs[3] == "X" && pegs[4] == "X" && pegs[5] == "X") {
-        win = true;
-    } else if (pegs[6] == "X" && pegs[7] == "X" && pegs[8] == "X") {
-        win = true;
-    } else if (pegs[0] == "O" && pegs[1] == "O" && pegs[2] == "O") {
-        win = true;
-    } else if (pegs[3] == "O" && pegs[4] == "O" && pegs[5] == "O") {
-        win = true;
-    } else if (pegs[6] == "O" && pegs[7] == "O" && pegs[8] == "O") {
-        win = true;
-    } else {
-        win = false;
-    }
-    return win;
+    return false;
 }
 bool TicTacToe::check_diagonal_win() {
-    /* A diagonal wins with marked values 1,5,9 or 7,5,3 with all Os or Xs
-    */
-    bool win;
-    if (pegs[0] == "X" && pegs[4] == "X" && pegs[8] == "X") {
-        win = true;
-    } else if (pegs[6] == "X" && pegs[4] == "X" && pegs[2] == "X") {
-        win = true;
-    } else if (pegs[0] == "O" && pegs[4] == "O" && pegs[8] == "O"){
-        win = true;
-    } else if (pegs[6] == "O" && pegs[4] == "O" && pegs[2] == "O") {
-        win = true;
-    } else {
-        win = false;
-    }
-   return win;
+    return false;
 }
 
 void TicTacToe::set_winner() {
