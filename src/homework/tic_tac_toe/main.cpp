@@ -2,14 +2,18 @@
 #include "tic_tac_toe_3.h"
 #include "tic_tac_toe_4.h"
 #include "tic_tac_toe_manager.h"
+#include "tic_tac_toe_data.h"
 
 using std::string, std::cout, std::cin;
 int main() 
 {
 	// Create TicTacToe instance
 	unique_ptr<TicTacToe> game;
+	// Create TicTacToeData instance
+	TicTacToeData data;
 	// Create TicTacToeManager instance
-	TicTacToeManager manager;
+	TicTacToeManager manager = TicTacToeManager(data);
+
 
 	// Create variables
 	string first_player;
